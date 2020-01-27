@@ -1,0 +1,321 @@
+
+
+
+<section class="container mt-5">
+    <div class="row">
+        <!----------------------------left part---------------------->
+        <div class="col-md-3 d-none d-lg-block">
+            <div class="item">
+
+
+                <!------------------------------profile card --------------------------->
+
+
+                <div class="card  shadow">
+                    <div class="brdr-img ">
+                        <img src="assets/banner-small.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="assets/profile-midle-1.jpg" class="rounded-circle circle-img">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+
+
+                <!------------------------------liked page card --------------------------->
+
+                <div class="card text-center py-4  my-3 shadow">
+                    <h5 class="mt-4"> <span>Page</span> You May Like</h5>
+                    <div class="card-body page-liked-container ">
+                        <div class="page clearfix my-3">
+                            <div class="float-left"> <img src="assets/profile-small-27.jpg"
+                                    class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left">
+                                <a>Travel The World</a><br>
+                                <a>Adventure</a>
+                            </div>
+
+                            <div class="heart float-right">
+                                <img src="assets/heart-color.png">
+                            </div>
+                        </div>
+
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left"> <img src="assets/profile-small-27.jpg"
+                                    class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left">
+                                <a>Travel The World</a><br>
+                                <a>Adventure</a>
+                            </div>
+
+                            <div class="heart float-right">
+                                <img src="assets/heart.png">
+                            </div>
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left"> <img src="assets/profile-small-27.jpg"
+                                    class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left">
+                                <a>Travel The World</a><br>
+                                <a>Adventure</a>
+                            </div>
+
+                            <div class="heart float-right">
+                                <img src="assets/heart-color.png">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <!------------------------------news page card --------------------------->
+
+                <div class="card text-center  my-3 shadow">
+                    <h5 class="mt-4"> <span>Latest </span> Top News</h5>
+                    <div class="card-body">
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-27.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-32.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-28.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+        <!------------------middle part--------------->
+
+        <div class="col-lg-6">
+            <div class="item">
+                <ul class="list-unstyled my-3">
+                    <li class="media px-3 shadow d-flex align-items-center py-4">
+                        <img src="assets/profile-small-27.jpg" class="mr-3 rounded-circle" alt="...">
+                        <div class="media-body">
+
+                            <input class="form-control w-100" placeholder="say somthing...">
+                            <div class="btn-container">
+                                <button>POST</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <!-----------------------------------------post------------------------------------->
+              
+
+                    <div class="card shadow my-4 py-4" *ngFor="let user of users ;  let i = index  ;let l=last">
+
+                        <div *ngIf="posts[i] !=undefiend && photos[i] != undefiend">
+                        <a [routerLink]="['/post',posts[i].id]">
+                        <div class=" d-flex align-content-start align-items-center">
+
+                            <!-- <img src="assets/profile-small-32.jpg" class="rounded-circle"> -->
+                            <img  [src]="photos[i].thumbnailUrl" class="rounded-circle thum ">
+
+                            <div class="">
+                                <p> {{users[i].name}}</p>
+                                <p>user id:{{users[i].id}}</p>
+                                <p><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+
+
+                        </div>
+                        <div *ngIf="posts" class="card-body pb-0">
+                            <p>{{posts[i].body}}</p>
+
+                            <img  [src]="photos[i].url" class="card-img-top mt-3" alt="...">
+
+                        </div>
+
+                        <div class="footer p-5 pt-0">
+                            <div class="likes float-left">
+                                <i class="fas fa-heart"></i>
+                                You and 206 people like this
+
+
+                            </div>
+
+
+                            <div class="comments float-right">
+                                41
+                                <i class="fas fa-comment-alt"></i>
+                                07
+                                <i class="fas fa-share-alt"></i>
+
+
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                    </div>
+               
+                <!----------------------------------------post end---------------------------------->
+
+            </div>
+        </div>
+
+        <!------------------end middle part--------------->
+
+
+        <div class="col-md-3 d-none d-lg-block">
+
+            <div class="item">
+
+                <div class="card text-center  my-3 shadow">
+                    <h5 class="mt-4"> <span>Recent </span> Notifications</h5>
+                    <div class="card-body">
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-27.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-32.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-28.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-27.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-32.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+                        <div class="page clearfix my-3">
+                            <div class="float-left w-25 pr-3 d-none d-lg-block"> <img
+                                    src="assets/profile-small-28.jpg" class=" profile-img rounded-circle"></div>
+
+                            <div class="float-left text-left w-75">
+                                <a>Any one can join with us if you want</a><br>
+                                <small>20 Min Ago</small>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
